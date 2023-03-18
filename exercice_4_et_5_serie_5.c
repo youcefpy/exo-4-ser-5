@@ -1,11 +1,12 @@
 #include <stdio.h>
-
+#include <stdbool.h>
 int main()
 {
     int n,m ;
     printf("donner la tailler de la matrice : "); 
     scanf("%d",&n);
    int A[n][n];
+   bool est_sym = true;
    
    //replisage de la matrice ; 
     for(int i = 0; i<n; i++){
@@ -39,7 +40,20 @@ int main()
         }
     }
     
+    //verification si la matrice est symétrique 
+    //matrice symétrique c-a-d A[i][j] == A[j][i]
     
+    for(int i = 0 ; i<n;i++){
+        for(int j = 0;j<n;j++){
+            if(A[i][j] != A[j][i]){
+                est_sym = false;
+                printf("la matrice A n'est pas symétrique");
+            }
+        }
+    }
+    if(est_sym==true){
+        printf("la matrice A est symétrique");
+    }
     
     //affichege de la matrice apres transposition
     printf("\n");
